@@ -1,0 +1,142 @@
+/* FlightLine site: airfield-sign style. Sign yellow on sign black; pages follow light/dark. */
+@font-face {
+  font-family: "Barlow Condensed";
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/barlow-condensed-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/barlow-condensed-700.woff2") format("woff2");
+}
+
+:root {
+  color-scheme: light dark;
+  --sign-yellow: #F5C400;
+  --sign-black: #0B0B0B;
+  --page: #F6F4EE;
+  --raised: #FFFFFF;
+  --ink: #141414;
+  --muted: #55524A;
+  --accent: #8A6500;          /* readable amber on light pages */
+  --rule: rgba(0, 0, 0, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #0F0F0F;
+    --raised: #1A1A1A;
+    --ink: #F4F4F4;
+    --muted: #B5B2AA;
+    --accent: #F5C400;
+    --rule: rgba(255, 255, 255, 0.14);
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--page);
+  color: var(--ink);
+  font: 1.0625rem/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+a { color: var(--accent); text-underline-offset: 0.15em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--sign-yellow); outline-offset: 3px; }
+
+.wrap { width: 100%; max-width: 44rem; margin: 0 auto; padding: 0 1.25rem; }
+
+/* Header: wordmark sign */
+.site-header { padding: 1.25rem 0; }
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.wordmark img { width: 2.25rem; height: 2.25rem; }
+.wordmark span {
+  font: 700 1.6rem/1 "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+main { flex: 1; }
+
+/* Airfield signs */
+.sign {
+  display: inline-block;
+  font: 700 1.15rem/1 "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.8rem;
+}
+.sign-location {           /* yellow text, yellow frame, black panel */
+  background: var(--sign-black);
+  color: var(--sign-yellow);
+  box-shadow: inset 0 0 0 3px var(--sign-yellow);
+  border: 3px solid var(--sign-black);
+}
+.sign-direction {          /* black text on yellow */
+  background: var(--sign-yellow);
+  color: var(--sign-black);
+}
+
+.hazard {
+  height: 10px;
+  background: repeating-linear-gradient(-45deg, var(--sign-yellow) 0 12px, var(--sign-black) 12px 24px);
+  border: 0;
+  margin: 0;
+}
+
+/* Landing */
+.hero { padding: 2.5rem 0 3.5rem; text-align: center; }
+.hero-icon { width: 7.5rem; height: 7.5rem; margin: 0 auto 1.5rem; display: block; }
+.hero h1 {
+  margin: 0;
+  font: 700 clamp(3.25rem, 14vw, 5.5rem)/0.95 "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.tagline { margin: 1.1rem 0 0; }
+.tagline .sign { font-size: clamp(1rem, 4.2vw, 1.3rem); }
+.hero p.lede { max-width: 32rem; margin: 1.75rem auto 0; color: var(--muted); }
+.soon { margin-top: 2rem; }
+.soon .sign { font-size: 1.25rem; padding: 0.75rem 1.1rem; }
+
+/* Text pages */
+.page { padding: 1.5rem 0 3rem; }
+.page h1 {
+  margin: 0 0 1rem;
+  font: 700 2.6rem/1 "Barlow Condensed", "Arial Narrow", sans-serif;
+  text-transform: uppercase;
+}
+.page h2 {
+  margin: 2rem 0 0.5rem;
+  font: 700 1.5rem/1.1 "Barlow Condensed", "Arial Narrow", sans-serif;
+  text-transform: uppercase;
+}
+.card {
+  background: var(--raised);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+.placeholder { border-style: dashed; color: var(--muted); }
+.email { font-size: 1.25rem; font-weight: 600; word-break: break-word; }
+
+/* Footer */
+.site-footer { padding: 1.5rem 0 2rem; font-size: 0.95rem; color: var(--muted); }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 0.5rem; }
+.site-footer a { color: var(--ink); font-weight: 600; }
+
+@media (min-width: 40rem) {
+  .hero { padding: 4rem 0 5rem; }
+  .hero-icon { width: 9rem; height: 9rem; }
+}
