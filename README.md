@@ -7,7 +7,7 @@ Plain HTML and CSS, no build step. Edit the files and push to `main`; Pages rede
 | Path | Page |
 |---|---|
 | `index.html` | Landing page |
-| `privacy/index.html` | Privacy policy (placeholder until the policy text is added) |
+| `privacy/index.html` | Privacy policy |
 | `support/index.html` | Support contact |
 | `404.html` | Not-found page |
 | `CNAME` | Custom domain for GitHub Pages |

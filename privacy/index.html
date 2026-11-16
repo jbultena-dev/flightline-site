@@ -4,14 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — FlightLine</title>
-<meta name="description" content="The FlightLine privacy policy.">
+<meta name="description" content="How FlightLine collects, uses and protects your data. No selling, no ads.">
 <meta name="theme-color" content="#F6F4EE" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0F0F0F" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
-<meta name="robots" content="noindex">
 </head>
 <body>
 <header class="site-header">
@@ -20,14 +19,64 @@
   </div>
 </header>
 <hr class="hazard">
-<main class="page">
+<main class="page policy">
   <div class="wrap">
-    <h1>Privacy Policy</h1>
-    <!-- PRIVACY POLICY PLACEHOLDER: replace this whole <div class="card placeholder"> block with the final policy text, then remove the noindex meta tag in <head>. -->
-    <div class="card placeholder">
-      <p><strong>The FlightLine privacy policy is coming soon.</strong></p>
-      <p>It will be published here before FlightLine is available on the App Store. Questions in the meantime? Email <a href="mailto:joe.bultena@gmail.com">joe.bultena@gmail.com</a>.</p>
+    <h1>FlightLine Privacy Policy</h1>
+    <p class="updated">Last updated November 15, 2026</p>
+
+    <p class="summary">FlightLine collects only what it needs to identify the aircraft you photograph, log your sightings and run your account, and it never sells your data or shows ads.</p>
+
+    <p>FlightLine: Plane Spotting (&ldquo;FlightLine&rdquo;, &ldquo;we&rdquo;) is a plane-spotting app and community published by Joseph Bultena. This policy covers the FlightLine iOS app, including beta versions distributed through TestFlight. Questions go to <a href="mailto:joe.bultena@gmail.com">joe.bultena@gmail.com</a>.</p>
+
+    <h2>What we collect</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th scope="col">Data</th><th scope="col">When</th><th scope="col">Why</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Data">Aircraft photos</td><td data-label="When">When you take or choose a photo to make a card</td><td data-label="Why">To identify the aircraft and create your card</td></tr>
+          <tr><td data-label="Data">Photo date and location</td><td data-label="When">When the photo carries them, or from your location at the moment you take it in the app</td><td data-label="Why">To place a sighting at the nearest airport and award points</td></tr>
+          <tr><td data-label="Data">Your location (while using the app only)</td><td data-label="When">When you use the camera or sort spotting locations by distance</td><td data-label="Why">To tag sightings and show nearby spots</td></tr>
+          <tr><td data-label="Data">Anonymous account ID</td><td data-label="When">When you first open the app</td><td data-label="Why">To keep your data together and limit identification requests per device</td></tr>
+          <tr><td data-label="Data">Sign in with Apple identifier and, if you share it, your email</td><td data-label="When">Only if you choose to sign in</td><td data-label="Why">To keep your cards, sightings and points across devices</td></tr>
+          <tr><td data-label="Data">Sightings, cards, follows and points</td><td data-label="When">As you use the app</td><td data-label="Why">To run your logbook, collections and leaderboard</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p>We never ask for your contacts, and we never track your location in the background.</p>
+
+    <h2>Services we use</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th scope="col">Provider</th><th scope="col">What it receives</th><th scope="col">Purpose</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Provider">Supabase</td><td data-label="What it receives">Your anonymous account ID, sign-in details and app data you sync</td><td data-label="Purpose">Hosts our backend, account system and database</td></tr>
+          <tr><td data-label="Provider">Anthropic (Claude)</td><td data-label="What it receives">A resized copy of the photo you choose and text read from it, sent through our server</td><td data-label="Purpose">Identifies the airline, aircraft type, livery and registration</td></tr>
+          <tr><td data-label="Provider">Planespotters.net</td><td data-label="What it receives">An aircraft registration or transponder code</td><td data-label="Purpose">Looks up a public photo of that aircraft, shown with the photographer&rsquo;s credit</td></tr>
+          <tr><td data-label="Provider">Flickr</td><td data-label="What it receives">An aircraft registration, sent through our server</td><td data-label="Purpose">Finds openly licensed aircraft photos when Planespotters has none</td></tr>
+          <tr><td data-label="Provider">Apple</td><td data-label="What it receives">Map requests and, if you sign in, your Sign in with Apple identifier</td><td data-label="Purpose">Shows maps and directions, and runs sign-in</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Photo identification happens only when you make a card. Lookups of aircraft photos send no personal information about you.</p>
+
+    <h2>Sharing, storage and security</h2>
+    <ul>
+      <li><strong>No selling, no ads.</strong> We don&rsquo;t sell your data, share it with advertisers or use it for tracking across other apps.</li>
+      <li><strong>What others see.</strong> Your display name and points may appear on leaderboards. Cards and photos stay private unless you share them yourself.</li>
+      <li><strong>Where it lives.</strong> Most of your data is stored on your iPhone. Data you sync is stored with Supabase. Photos sent for identification are used to answer that request, not to build a photo library.</li>
+      <li><strong>How long.</strong> We keep your account data until you delete your account. Per-device request counts used for rate limiting are kept only as long as needed to enforce daily limits.</li>
+      <li><strong>Security.</strong> Data travels over encrypted connections, access to our database is restricted per user, and our service keys are never stored in the app.</li>
+      <li><strong>Legal requests.</strong> We disclose data only when required by law.</li>
+    </ul>
+
+    <h2>Your choices</h2>
+    <ul>
+      <li><strong>Permissions.</strong> Camera, photo library and location access are optional and can be changed anytime in iPhone Settings. Without them you can still browse the app, and photos without a location simply earn no points.</li>
+      <li><strong>Delete your account.</strong> Go to Account in the app and tap Delete account. This removes your account and the data we store on our servers. Deleting the app removes the data stored on your iPhone.</li>
+      <li><strong>Access or questions.</strong> Email <a href="mailto:joe.bultena@gmail.com">joe.bultena@gmail.com</a> to ask what we hold about you or to request a copy or correction.</li>
+      <li><strong>Children.</strong> FlightLine isn&rsquo;t directed at children under 13, and we don&rsquo;t knowingly collect their data.</li>
+      <li><strong>Changes.</strong> If this policy changes, we&rsquo;ll update the date at the top and, for significant changes, tell you in the app.</li>
+    </ul>
   </div>
 </main>
 <hr class="hazard">
