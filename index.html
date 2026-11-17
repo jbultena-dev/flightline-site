@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>FlightLine — The plane-spotting app and community</title>
-<meta name="description" content="FlightLine: the plane-spotting app and community. Coming soon to the App Store.">
-<meta name="theme-color" content="#F6F4EE" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0F0F0F" media="(prefers-color-scheme: dark)">
+<meta name="description" content="FlightLine: the plane-spotting app and community. Join the invite-only beta for plane spotters.">
+<meta name="theme-color" content="#0B0B0B">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <meta property="og:title" content="FlightLine">
-<meta property="og:description" content="The plane-spotting app and community. Coming soon to the App Store.">
+<meta property="og:description" content="The plane-spotting app and community. Join the invite-only beta.">
 <meta property="og:url" content="https://getflightline.app/">
+<script src="/join.js" defer></script>
 </head>
-<body>
+<body class="home">
 <header class="site-header">
   <div class="wrap">
     <a class="wordmark" href="/" aria-label="FlightLine home"><img src="/icon.svg" alt="" width="36" height="36"><span>FlightLine</span></a>
@@ -23,13 +23,42 @@
 </header>
 <hr class="hazard">
 <main>
-  <section class="hero">
-    <div class="wrap">
-      <img class="hero-icon" src="/icon.svg" alt="" width="144" height="144">
-      <h1>FlightLine</h1>
+  <section class="hero" aria-labelledby="hero-title">
+    <!-- Decoration only: a radar sweep and approach lights, drawn in CSS. -->
+    <div class="hero-scene" aria-hidden="true">
+      <div class="radar"><div class="radar-sweep"></div></div>
+      <div class="runway-lights runway-lights-left"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="runway-lights runway-lights-right"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+
+    <div class="wrap hero-content">
+      <img class="hero-icon" src="/icon.svg" alt="" width="112" height="112">
+      <h1 id="hero-title">FlightLine</h1>
       <p class="tagline"><span class="sign sign-direction">The plane-spotting app and community</span></p>
-      <p class="lede">FlightLine is a new home for people who love watching airplanes: a place to keep track of what you&rsquo;ve spotted and share the hobby with fellow spotters. We&rsquo;re putting the finishing touches on it now.</p>
-      <p class="soon"><span class="sign sign-location">Coming soon to the App Store</span></p>
+
+      <div class="join-box" id="join">
+        <h2><span class="sign sign-location">Join the beta</span></h2>
+        <p class="join-lede">Invite-only for plane spotters.</p>
+
+        <form class="join-form" action="https://srpjvponziksyfwjsfgt.supabase.co/functions/v1/join-waitlist" method="post" novalidate>
+          <label for="join-email">Email</label>
+          <input id="join-email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="254" placeholder="you@example.com">
+
+          <label for="join-airport">Home airport <span class="optional">(optional)</span></label>
+          <input id="join-airport" name="home_airport" type="text" autocomplete="off" autocapitalize="characters" maxlength="60" placeholder="e.g. LAX">
+
+          <!-- Leave empty: a trap for bots. Hidden from people and screen readers. -->
+          <div class="trap" aria-hidden="true">
+            <label for="join-website">Website</label>
+            <input id="join-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="started_at" value="">
+
+          <button type="submit">Request an invite</button>
+          <p class="join-status" role="status" aria-live="polite"></p>
+        </form>
+        <p class="join-fine">We&rsquo;ll only use your email to send your beta invite. <a href="/privacy/#waitlist">Privacy</a></p>
+      </div>
     </div>
   </section>
 </main>

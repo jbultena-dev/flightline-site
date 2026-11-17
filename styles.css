@@ -95,21 +95,6 @@ main { flex: 1; }
   margin: 0;
 }
 
-/* Landing */
-.hero { padding: 2.5rem 0 3.5rem; text-align: center; }
-.hero-icon { width: 7.5rem; height: 7.5rem; margin: 0 auto 1.5rem; display: block; }
-.hero h1 {
-  margin: 0;
-  font: 700 clamp(3.25rem, 14vw, 5.5rem)/0.95 "Barlow Condensed", "Arial Narrow", sans-serif;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-}
-.tagline { margin: 1.1rem 0 0; }
-.tagline .sign { font-size: clamp(1rem, 4.2vw, 1.3rem); }
-.hero p.lede { max-width: 32rem; margin: 1.75rem auto 0; color: var(--muted); }
-.soon { margin-top: 2rem; }
-.soon .sign { font-size: 1.25rem; padding: 0.75rem 1.1rem; }
-
 /* Text pages */
 .page { padding: 1.5rem 0 3rem; }
 .page h1 {
@@ -135,11 +120,6 @@ main { flex: 1; }
 .site-footer { padding: 1.5rem 0 2rem; font-size: 0.95rem; color: var(--muted); }
 .site-footer nav { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 0.5rem; }
 .site-footer a { color: var(--ink); font-weight: 600; }
-
-@media (min-width: 40rem) {
-  .hero { padding: 4rem 0 5rem; }
-  .hero-icon { width: 9rem; height: 9rem; }
-}
 
 /* Privacy policy */
 .policy .updated { margin: -0.5rem 0 1.25rem; color: var(--muted); font-size: 0.95rem; }
@@ -190,4 +170,159 @@ main { flex: 1; }
     letter-spacing: 0.02em;
   }
   .policy td:first-child::before { display: none; }
+}
+
+/* Home: always sign black, whatever the system theme. */
+.home { background: var(--sign-black); color: #F4F4F4; color-scheme: dark; }
+.home .wordmark { color: #F4F4F4; }
+.home .site-footer { color: #B5B2AA; }
+.home .site-footer a { color: #F4F4F4; }
+.home a { color: var(--sign-yellow); }
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 2rem 0 3rem;
+  text-align: center;
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-icon { width: 5.5rem; height: 5.5rem; margin: 0 auto 1rem; display: block; }
+.hero h1 {
+  margin: 0;
+  font: 700 clamp(3rem, 15vw, 5.5rem)/0.95 "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+.tagline { margin: 1rem 0 0; }
+.tagline .sign { font-size: clamp(0.95rem, 4.2vw, 1.25rem); }
+
+/* Background scene: a slow radar sweep with range rings, and approach lights. */
+.hero-scene { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.radar {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: min(150vw, 60rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(circle, transparent 0 calc(12.5% - 1px), rgba(245, 196, 0, 0.13) calc(12.5% - 1px) 12.5%),
+    linear-gradient(rgba(245, 196, 0, 0.08), rgba(245, 196, 0, 0.08)) center / 1px 100% no-repeat,
+    linear-gradient(rgba(245, 196, 0, 0.08), rgba(245, 196, 0, 0.08)) center / 100% 1px no-repeat;
+  -webkit-mask: radial-gradient(circle, #000 55%, transparent 71%);
+  mask: radial-gradient(circle, #000 55%, transparent 71%);
+}
+.radar-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(245, 196, 0, 0.28), rgba(245, 196, 0, 0) 55deg, transparent 360deg);
+  animation: sweep 9s linear infinite;
+  will-change: transform;
+}
+@keyframes sweep { to { transform: rotate(360deg); } }
+
+/* Two rows of approach lights converging on the threshold; a "rabbit" runs along them. */
+.runway-lights {
+  position: absolute;
+  bottom: 1.25rem;
+  display: flex;
+  gap: clamp(0.6rem, 3vw, 1.4rem);
+}
+.runway-lights-left { right: 50%; margin-right: clamp(4.5rem, 22vw, 11rem); }
+.runway-lights-right { left: 50%; margin-left: clamp(4.5rem, 22vw, 11rem); flex-direction: row-reverse; }
+.runway-lights i {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sign-yellow);
+  opacity: 0.25;
+  box-shadow: 0 0 6px rgba(245, 196, 0, 0.6);
+  animation: rabbit 2.4s linear infinite;
+}
+.runway-lights i:nth-child(1) { animation-delay: 0s; }
+.runway-lights i:nth-child(2) { animation-delay: 0.15s; }
+.runway-lights i:nth-child(3) { animation-delay: 0.3s; }
+.runway-lights i:nth-child(4) { animation-delay: 0.45s; }
+.runway-lights i:nth-child(5) { animation-delay: 0.6s; }
+.runway-lights i:nth-child(6) { animation-delay: 0.75s; }
+.runway-lights i:nth-child(7) { animation-delay: 0.9s; }
+.runway-lights i:nth-child(8) { animation-delay: 1.05s; }
+@keyframes rabbit {
+  0%, 12% { opacity: 1; transform: scale(1.35); }
+  20%, 100% { opacity: 0.25; transform: scale(1); }
+}
+
+/* Motion is decoration: none of it for people who'd rather not. */
+@media (prefers-reduced-motion: reduce) {
+  .radar-sweep, .runway-lights i { animation: none; }
+  .radar-sweep { transform: rotate(35deg); }
+}
+
+/* Waitlist box */
+.join-box {
+  max-width: 26rem;
+  margin: 2rem auto 0;
+  padding: 1.5rem 1.25rem 1.25rem;
+  background: rgba(11, 11, 11, 0.88);
+  border: 3px solid var(--sign-yellow);
+  box-shadow: 0 0 0 3px var(--sign-black), 0 18px 40px rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+.join-box h2 { margin: 0; text-align: center; }
+.join-box h2 .sign { font-size: 1.35rem; }
+.join-lede { margin: 0.75rem 0 1.1rem; text-align: center; font-weight: 600; color: #F4F4F4; }
+.join-form label {
+  display: block;
+  margin: 0.85rem 0 0.35rem;
+  font: 700 1rem/1.2 "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--sign-yellow);
+}
+.join-form .optional { color: #B5B2AA; text-transform: none; letter-spacing: 0; font-weight: 600; }
+.join-form input[type="email"], .join-form input[type="text"] {
+  width: 100%;
+  padding: 0.8rem 0.85rem;
+  font: inherit;
+  font-size: 1.0625rem;   /* 17px+ keeps iOS from zooming in */
+  color: #FFFFFF;
+  background: #161616;
+  border: 1px solid rgba(245, 196, 0, 0.55);
+  border-radius: 0;
+}
+.join-form input::placeholder { color: #8C887F; }
+.join-form input:focus { outline: 3px solid var(--sign-yellow); outline-offset: 1px; border-color: var(--sign-yellow); }
+.join-form button {
+  width: 100%;
+  margin-top: 1.25rem;
+  padding: 0.85rem 1rem;
+  font: 700 1.25rem/1 "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--sign-black);
+  background: var(--sign-yellow);
+  border: 0;
+  cursor: pointer;
+}
+.join-form button:hover { filter: brightness(1.06); }
+.join-form button:disabled { opacity: 0.6; cursor: progress; }
+.join-form.is-done label, .join-form.is-done input, .join-form.is-done button { display: none; }
+.join-status { min-height: 1.5em; margin: 0.85rem 0 0; font-weight: 600; text-align: center; }
+.join-status.is-ok { color: var(--sign-yellow); }
+.join-status.is-error { color: #FF9B7A; }
+.join-form.is-done .join-status { font: 700 1.6rem/1.2 "Barlow Condensed", "Arial Narrow", sans-serif; margin: 0.5rem 0; }
+.join-fine { margin: 1rem 0 0; font-size: 0.85rem; color: #B5B2AA; text-align: center; }
+
+/* The bot trap stays out of sight and out of reach. */
+.trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+@media (min-width: 40rem) {
+  .hero { padding: 3.5rem 0 5rem; }
+  .hero-icon { width: 7rem; height: 7rem; }
+  .join-box { padding: 1.75rem 1.75rem 1.5rem; }
 }
