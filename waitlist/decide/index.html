@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beta request — FlightLine</title>
+<!-- The owner's Approve/Waitlist links land here. Nothing happens until Confirm is pressed. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#F6F4EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F0F0F" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="FlightLine home"><img src="/icon.svg" alt="" width="36" height="36"><span>FlightLine</span></a>
+  </div>
+</header>
+<hr class="hazard">
+<main class="page">
+  <div class="wrap">
+    <h1 class="decide-title">Beta request</h1>
+    <div class="card decide">
+      <dl class="decide-details" hidden>
+        <dt>Email</dt><dd data-field="email"></dd>
+        <dt>Home airport</dt><dd data-field="home_airport"></dd>
+        <dt>What they spot</dt><dd data-field="spots"></dd>
+        <dt>Signed up</dt><dd data-field="created_at"></dd>
+        <dt>Status now</dt><dd data-field="status"></dd>
+      </dl>
+      <form class="join-form decide-form" hidden>
+        <button type="submit"></button>
+      </form>
+      <p class="join-status decide-status" role="status" aria-live="polite">Checking the link…</p>
+      <noscript><p>This page needs JavaScript to confirm.</p></noscript>
+    </div>
+  </div>
+</main>
+<hr class="hazard">
+<footer class="site-footer">
+  <div class="wrap">
+    <nav aria-label="Footer"><a href="/privacy/">Privacy</a><a href="/support/">Support</a><a href="mailto:hello@getflightline.app">Contact</a></nav>
+    <div>&copy; 2026 FlightLine</div>
+  </div>
+</footer>
+<script src="/waitlist/decide/decide.js"></script>
+</body>
+</html>

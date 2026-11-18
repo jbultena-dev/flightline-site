@@ -55,7 +55,7 @@
           <tr><td data-label="Provider">Anthropic (Claude)</td><td data-label="What it receives">A resized copy of the photo you choose (and a close-up crop of the aircraft in it) and text read from it, sent through our server</td><td data-label="Purpose">Identifies the airline, aircraft type, livery and registration, and checks that the photo shows an aircraft and is appropriate</td></tr>
           <tr><td data-label="Provider">Planespotters.net</td><td data-label="What it receives">An aircraft registration or transponder code</td><td data-label="Purpose">Looks up a public photo of that aircraft, shown with the photographer&rsquo;s credit</td></tr>
           <tr><td data-label="Provider">Flickr</td><td data-label="What it receives">An aircraft registration, sent through our server</td><td data-label="Purpose">Finds openly licensed aircraft photos when Planespotters has none</td></tr>
-          <tr><td data-label="Provider">Resend</td><td data-label="What it receives">Your email address, if you join the beta waitlist on our website</td><td data-label="Purpose">Sends the one-time email confirming you&rsquo;re on the waitlist</td></tr>
+          <tr><td data-label="Provider">Resend</td><td data-label="What it receives">Your email address, if you join the beta waitlist on our website (and, for the review email sent to our developer, your home airport and what you spot)</td><td data-label="Purpose">Sends the waitlist emails: the confirmation, the request review, and your approval or waitlist update</td></tr>
           <tr><td data-label="Provider">Apple</td><td data-label="What it receives">Map requests and, if you sign in, your Sign in with Apple identifier</td><td data-label="Purpose">Shows maps and directions, and runs sign-in</td></tr>
         </tbody>
       </table>
@@ -84,11 +84,12 @@
 
     <h2 id="waitlist">Beta waitlist</h2>
     <ul>
-      <li><strong>What we keep.</strong> When you join the waitlist on getflightline.app, we store your email address and, if you give it, your home airport, with the date you joined.</li>
+      <li><strong>What we keep.</strong> When you join the waitlist on getflightline.app, we store your email address and, if you give them, your home airport and what you like to spot, with the date you joined. We also keep where your request stands (pending, approved or waitlisted) and when that changed, and when we emailed you about it.</li>
+      <li><strong>Reviewing requests.</strong> The beta is invite-only, so each request is emailed to FlightLine&rsquo;s developer to review, with the details above. When we approve you, we email you the TestFlight link to install the beta; if a wave is full, we email you once to say you&rsquo;re still on the list. Each of these emails is sent once. Installing through TestFlight is covered by Apple&rsquo;s own privacy policy.</li>
       <li><strong>Why.</strong> Only to send you a beta invite and, rarely, news about the beta. No marketing lists, and we never sell or share it.</li>
       <li><strong>Confirmation email.</strong> When you join, we send one email confirming you&rsquo;re on the list. It&rsquo;s sent through Resend, our email provider, which receives only your email address to deliver it. Each address gets this email once, ever: to make sure of that we keep a one-way, salted fingerprint of the address (not the address itself), even if you later leave the list. If someone else entered your address, just ignore the email.</li>
       <li><strong>Abuse protection.</strong> To stop automated sign-ups we keep a one-way, salted hash of your IP address for 24 hours. We never store the address itself.</li>
-      <li><strong>Where.</strong> The waitlist is stored with Supabase and can&rsquo;t be read by anyone but FlightLine&rsquo;s developer. Resend handles sending the confirmation email. The website uses no cookies, analytics or tracking.</li>
+      <li><strong>Where.</strong> The waitlist is stored with Supabase and can&rsquo;t be read by anyone but FlightLine&rsquo;s developer. Resend, our email provider, sends the waitlist emails. The website uses no cookies, analytics or tracking.</li>
       <li><strong>Removal.</strong> Email <a href="mailto:hello@getflightline.app">hello@getflightline.app</a> and we&rsquo;ll remove you. We delete the waitlist once the beta ends.</li>
     </ul>
 

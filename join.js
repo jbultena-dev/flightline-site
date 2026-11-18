@@ -13,6 +13,7 @@
   var MESSAGES = {
     invalid_email: "That email doesn’t look right. Check it and try again.",
     invalid_home_airport: "Use an airport code like LAX, or a city name.",
+    invalid_spots: "Keep “What do you spot?” under 120 characters.",
     rate_limited: "Too many tries. Please wait a little and try again.",
     unavailable: "Something went wrong on our end. Please try again shortly."
   };
@@ -48,6 +49,7 @@
     var body = {
       email: value,
       home_airport: form.elements.home_airport.value.trim(),
+      spots: form.elements.spots.value.trim(),
       website: form.elements.website.value,
       started_at: started.value
     };

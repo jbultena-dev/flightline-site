@@ -326,3 +326,9 @@ main { flex: 1; }
   .hero-icon { width: 7rem; height: 7rem; }
   .join-box { padding: 1.75rem 1.75rem 1.5rem; }
 }
+
+/* Beta request confirmation page (/waitlist/decide/). */
+.decide-details { display: grid; grid-template-columns: auto 1fr; gap: 0.4rem 1rem; margin: 0 0 1.25rem; }
+.decide-details dt { font-weight: 700; color: #8C887F; }
+.decide-details dd { margin: 0; overflow-wrap: anywhere; }
+.decide-form button { width: 100%; }
