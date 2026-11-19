@@ -22,7 +22,7 @@
 <main class="page policy">
   <div class="wrap">
     <h1>FlightLine Privacy Policy</h1>
-    <p class="updated">Last updated November 18, 2026</p>
+    <p class="updated">Last updated November 19, 2026</p>
 
     <p class="summary">FlightLine collects only what it needs to identify the aircraft you photograph, log your sightings and run your account, and it never sells your data or shows ads.</p>
 
@@ -56,11 +56,22 @@
           <tr><td data-label="Provider">Planespotters.net</td><td data-label="What it receives">An aircraft registration or transponder code</td><td data-label="Purpose">Looks up a public photo of that aircraft, shown with the photographer&rsquo;s credit</td></tr>
           <tr><td data-label="Provider">Flickr</td><td data-label="What it receives">An aircraft registration, sent through our server</td><td data-label="Purpose">Finds openly licensed aircraft photos when Planespotters has none</td></tr>
           <tr><td data-label="Provider">Resend</td><td data-label="What it receives">Your email address, if you join the beta waitlist on our website (and, for the review email sent to our developer, your home airport and what you spot)</td><td data-label="Purpose">Sends the waitlist emails: the confirmation, the request review, and your approval or waitlist update</td></tr>
+          <tr><td data-label="Provider">ADSB.lol</td><td data-label="What it receives">Only the airport area we ask about, from our server. Never anything about you</td><td data-label="Purpose">Live positions of aircraft near our Radar airports (open data, ODbL)</td></tr>
           <tr><td data-label="Provider">Apple</td><td data-label="What it receives">Map requests and, if you sign in, your Sign in with Apple identifier</td><td data-label="Purpose">Shows maps and directions, and runs sign-in</td></tr>
         </tbody>
       </table>
     </div>
     <p>Photo identification happens only when you make a card. Lookups of aircraft photos send no personal information about you.</p>
+
+    <h2 id="live-aircraft">Live aircraft on the Radar</h2>
+    <ul>
+      <li><strong>Where it comes from.</strong> Positions come from ADSB.lol&rsquo;s open data, which collects what aircraft broadcast publicly. Your iPhone only ever asks our server, which asks ADSB.lol for the airport&rsquo;s area and filters the result before anything reaches the app. Nothing about you is sent.</li>
+      <li><strong>Never shown.</strong> Aircraft whose owners have asked not to be tracked (the FAA&rsquo;s LADD and PIA programs), business and corporate jets, government VIP and executive transports (such as Air Force One and other VIP flights), and anything our server can&rsquo;t identify are removed on our server and never reach your iPhone.</li>
+      <li><strong>Optional layers, off by default.</strong> You can turn on small private planes, helicopters and military aircraft. Military aircraft appear only when they broadcast their position openly and are of types we list (transports, tankers, patrol and Coast Guard aircraft).</li>
+      <li><strong>View-only.</strong> Private planes, helicopters (including medical and police helicopters), military aircraft and private floatplanes show only their type, altitude and speed. They can&rsquo;t be followed, can&rsquo;t send alerts or Live Activities, and are never logged as sightings or looked up by registration. We keep no history of them; only commercial airline and seaplane flights count toward a livery&rsquo;s &ldquo;last seen&rdquo;.</li>
+      <li><strong>No owner details.</strong> To fill in aircraft types we use the FAA&rsquo;s public aircraft registry, storing only each U.S. registration number and its aircraft type. We never read, store or show owner names or addresses.</li>
+      <li><strong>Your own photos.</strong> You can still make a card from your own photo of any aircraft, including small planes, helicopters, military aircraft and seaplanes. For seaplane cards, FlightLine checks on your iPhone whether the photo shows water (for a badge); that check doesn&rsquo;t send the photo anywhere.</li>
+    </ul>
 
     <h2>Photo safety checks</h2>
     <ul>
